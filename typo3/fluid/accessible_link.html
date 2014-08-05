@@ -11,7 +11,7 @@ Description : Accessible link using typo3 with VHS for external URL with a green
 
 <v:if.string.isNumeric value="{service.url}">
     <f:then>
-        <a href="{v:uri.typolink(configuration: {parameter: service.url})}" target="_blank" >{service.titre}</a>
+        <a href="{v:uri.typolink(configuration: {parameter: service.url})}" >{service.titre}</a>
     </f:then>
     <f:else>
         <a href="{v:uri.typolink(configuration: {parameter: service.url})}" target="_blank" >{service.titre}
