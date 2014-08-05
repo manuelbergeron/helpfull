@@ -1,0 +1,25 @@
+<!--
+VHS Required
+Fluid Required
+Typo3 6.1 + required
+
+
+Description : Accessible link using typo3 with VHS for external URL with a green SVG icon
+
+
+-->
+
+<v:if.string.isNumeric value="{service.url}">
+    <f:then>
+        <a href="{v:uri.typolink(configuration: {parameter: service.url})}" target="_blank" >{service.titre}</a>
+    </f:then>
+    <f:else>
+        <a href="{v:uri.typolink(configuration: {parameter: service.url})}" target="_blank" >{service.titre}
+            <span class="visuallyhidden">Ce lien s'ouvrira dans une nouvelle fenêtre</span>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="external-icon" x="0px" y="0px" width="15px" height="15px" viewBox="276.875 333.917 34.542 34.467" xml:space="preserve">
+                <g><path fill="#1D1D1B" d="M311.417,368.384h-34.542v-34.467h34.542V368.384z M279.375,365.884h29.542v-29.467h-29.542V365.884z"/></g>
+                <g><polygon fill="#1D1D1B" points="286.752,361.084 295.943,351.894 299.941,355.891 303.811,341.484 289.405,345.355 293.402,349.352 284.211,358.543"/></g>
+            </svg>
+        </a>
+    </f:else>
+</v:if.string.isNumeric>
