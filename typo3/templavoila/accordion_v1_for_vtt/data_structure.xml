@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<field_accordions type="array">
+				<type>array</type>
+				<tx_templavoila type="array">
+					<title>Accordeons</title>
+					<eType>input</eType>
+					<preview></preview>
+				</tx_templavoila>
+				<el type="array">
+					<field_accordion type="array">
+						<type>array</type>
+						<tx_templavoila type="array">
+							<title>Accordion</title>
+							<eType>input</eType>
+							<TypoScript></TypoScript>
+							<proc type="array">
+								<int>0</int>
+								<HSC>0</HSC>
+								<stdWrap></stdWrap>
+							</proc>
+							<preview></preview>
+						</tx_templavoila>
+						<TCEforms type="array">
+							<label></label>
+							<config type="array">
+							</config>
+						</TCEforms>
+						<el type="array">
+							<field_titre type="array">
+								<tx_templavoila type="array">
+									<title></title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>input</eType>
+									<proc type="array">
+										<HSC type="integer">1</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+									<TypoScript type="NULL"></TypoScript>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label></label>
+									<config type="array">
+										<type>input</type>
+										<size>48</size>
+										<eval>trim</eval>
+									</config>
+								</TCEforms>
+							</field_titre>
+							<field_contenu type="array">
+								<tx_templavoila type="array">
+									<title></title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>rte</eType>
+									<TypoScript><![CDATA[
+10 = TEXT
+10.current = 1
+10.parseFunc = < lib.parseFunc_RTE]]></TypoScript>
+									<preview></preview>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label></label>
+									<config type="array">
+										<type>text</type>
+										<cols>48</cols>
+										<rows>5</rows>
+										<softref>rtehtmlarea_images,typolink_tag,email[subst],url</softref>
+									</config>
+									<defaultExtras>richtext:rte_transform[flag=rte_enabled|mode=ts_css]</defaultExtras>
+								</TCEforms>
+							</field_contenu>
+						</el>
+					</field_accordion>
+				</el>
+				<section>1</section>
+			</field_accordions>
+			<field_class type="array">
+				<type>attr</type>
+				<tx_templavoila type="array">
+					<title>Classe spéciale des accordéons</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<TypoScript type="NULL"></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>1</HSC>
+						<stdWrap>noTrimWrap = |folder-group ||</stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Classe spéciale des accordéons</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_class>
+		</el>
+	</ROOT>
+</T3DataStructure>
