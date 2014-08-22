@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<field_zoom type="array">
+				<tx_templavoila type="array">
+					<title>Zoom</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>int</eType>
+					<TypoScript></TypoScript>
+					<proc type="array">
+						<int>1</int>
+						<stdWrap></stdWrap>
+						<HSC>0</HSC>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Zoom</label>
+					<config type="array">
+						<type>input</type>
+						<size>2</size>
+						<max>2</max>
+						<eval>int</eval>
+						<checkbox>0</checkbox>
+						<range type="array">
+							<upper>20</upper>
+							<lower>1</lower>
+						</range>
+						<default type="integer">0</default>
+					</config>
+				</TCEforms>
+			</field_zoom>
+			<field_longitude type="array">
+				<tx_templavoila type="array">
+					<title>Longitude</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<TypoScript type="NULL"></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Longitude</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_longitude>
+			<field_latitude type="array">
+				<tx_templavoila type="array">
+					<title>Latitude</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<TypoScript type="NULL"></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Latitude</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_latitude>
+			<field_infobulle type="array">
+				<tx_templavoila type="array">
+					<title>Infobulle</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>rte</eType>
+					<TypoScript><![CDATA[10 = TEXT
+10.current = 1
+10.parseFunc = < lib.parseFunc_RTE]]></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Infobulle</label>
+					<config type="array">
+						<type>text</type>
+						<cols>48</cols>
+						<rows>5</rows>
+						<softref>typolink_tag,images,email[subst],url</softref>
+					</config>
+					<defaultExtras>richtext:rte_transform[flag=rte_enabled|mode=ts_css]</defaultExtras>
+				</TCEforms>
+			</field_infobulle>
+			<field_style type="array">
+				<type>attr</type>
+				<tx_templavoila type="array">
+					<title>Style du bloc</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>none</eType>
+					<TypoScript>10 = COA
+10 {
+	10 = TEXT
+	10.field = field_height
+	10.wrap = height:|;
+	
+	20 = TEXT
+	20.field = field_width
+	20.wrap = width:|;
+}</TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+			</field_style>
+			<field_height type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Hauteur</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<proc type="array">
+						<HSC type="integer">1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScript type="NULL"></TypoScript>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Hauteur</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_height>
+			<field_width type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Largeur</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<proc type="array">
+						<HSC type="integer">1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScript type="NULL"></TypoScript>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Largeur</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_width>
+			<field_id type="array">
+				<type>attr</type>
+				<tx_templavoila type="array">
+					<title>id </title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>none</eType>
+					<TypoScript>10 = TEXT
+10.stdWrap.dataWrap = {register:tx_templavoila_pi1.parentRec.uid}
+</TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+			</field_id>
+		</el>
+	</ROOT>
+</T3DataStructure>
