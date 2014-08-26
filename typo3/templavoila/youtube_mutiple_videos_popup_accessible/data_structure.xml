@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <meta type="array">
+        <langDisable>1</langDisable>
+    </meta>
+    <ROOT type="array">
+        <tx_templavoila type="array">
+            <title>ROOT</title>
+            <description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+        </tx_templavoila>
+        <type>array</type>
+        <el type="array">
+            <field_texte_bouton type="array">
+                <tx_templavoila type="array">
+                    <title>Texte du bouton</title>
+                    <sample_data type="array">
+                        <numIndex index="0"></numIndex>
+                    </sample_data>
+                    <eType>input</eType>
+                    <TypoScript type="NULL"></TypoScript>
+                    <proc type="array">
+                        <int>0</int>
+                        <HSC>0</HSC>
+                        <stdWrap><![CDATA[required = 1
+wrap = |<span class="visuallyhidden"> Le vidéo s'ouvrira dans une nouvelle fenêtre</span>]]></stdWrap>
+                    </proc>
+                    <preview></preview>
+                </tx_templavoila>
+                <TCEforms type="array">
+                    <label>Texte du bouton</label>
+                    <config type="array">
+                        <type>input</type>
+                        <size>48</size>
+                        <eval>trim</eval>
+                    </config>
+                </TCEforms>
+            </field_texte_bouton>
+            <field_videos type="array">
+                <type>array</type>
+                <tx_templavoila type="array">
+                    <title>Les vidéos</title>
+                    <eType>input</eType>
+                    <preview></preview>
+                </tx_templavoila>
+                <el type="array">
+                    <field_video type="array">
+                        <type>array</type>
+                        <tx_templavoila type="array">
+                            <title>Vidéo</title>
+                            <eType>input</eType>
+                            <TypoScript></TypoScript>
+                            <proc type="array">
+                                <int>0</int>
+                                <HSC>0</HSC>
+                                <stdWrap></stdWrap>
+                            </proc>
+                            <preview></preview>
+                        </tx_templavoila>
+                        <TCEforms type="array">
+                            <label></label>
+                            <config type="array">
+                            </config>
+                        </TCEforms>
+                        <el type="array">
+                            <field_texte_bouton_video type="array">
+                                <tx_templavoila type="array">
+                                    <title>Texte du bouton du video</title>
+                                    <sample_data type="array">
+                                        <numIndex index="0"></numIndex>
+                                    </sample_data>
+                                    <eType>input</eType>
+                                    <TypoScript type="NULL"></TypoScript>
+                                    <proc type="array">
+                                        <int>0</int>
+                                        <HSC>0</HSC>
+                                        <stdWrap><![CDATA[required = 1
+wrap = |<span class="visuallyhidden">Cliquer pour afficher ce vidéo</span>]]></stdWrap>
+                                    </proc>
+                                    <preview></preview>
+                                </tx_templavoila>
+                                <TCEforms type="array">
+                                    <label>Texte du bouton du video</label>
+                                    <config type="array">
+                                        <type>input</type>
+                                        <size>48</size>
+                                        <eval>trim</eval>
+                                    </config>
+                                </TCEforms>
+                            </field_texte_bouton_video>
+                            <field_url_video type="array">
+                                <type>attr</type>
+                                <tx_templavoila type="array">
+                                    <title>Url du vidéo</title>
+                                    <sample_data type="array">
+                                        <numIndex index="0"></numIndex>
+                                    </sample_data>
+                                    <eType>input</eType>
+                                    <TypoScript type="NULL"></TypoScript>
+                                    <proc type="array">
+                                        <int>0</int>
+                                        <HSC>1</HSC>
+                                        <stdWrap></stdWrap>
+                                    </proc>
+                                    <preview></preview>
+                                </tx_templavoila>
+                                <TCEforms type="array">
+                                    <label>Url du vidéo</label>
+                                    <config type="array">
+                                        <type>input</type>
+                                        <size>48</size>
+                                        <eval>trim</eval>
+                                    </config>
+                                </TCEforms>
+                            </field_url_video>
+                            <field_default type="array">
+                                <type>attr</type>
+                                <tx_templavoila type="array">
+                                    <title>Vidéo sélectionné par défaut. (N'en choisir qu'un seul)</title>
+                                    <sample_data type="array">
+                                        <numIndex index="0"></numIndex>
+                                    </sample_data>
+                                    <eType>check</eType>
+                                    <TypoScript></TypoScript>
+                                    <proc type="array">
+                                        <int>0</int>
+                                        <HSC>0</HSC>
+                                        <stdWrap></stdWrap>
+                                    </proc>
+                                    <preview></preview>
+                                </tx_templavoila>
+                                <TCEforms type="array">
+                                    <label>Vidéo sélectionné par défaut. (N'en choisir qu'un seul)</label>
+                                    <config type="array">
+                                        <type>check</type>
+                                        <default type="integer">0</default>
+                                    </config>
+                                </TCEforms>
+                            </field_default>
+                        </el>
+                    </field_video>
+                </el>
+                <section>1</section>
+            </field_videos>
+        </el>
+    </ROOT>
+</T3DataStructure>
