@@ -210,6 +210,100 @@
 					<preview></preview>
 				</tx_templavoila>
 			</field_id>
+			<field_voir_carte type="array">
+				<tx_templavoila type="array">
+					<title>Lien voir la carte</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>none</eType>
+					<TypoScript><![CDATA[10 = COA
+10 {
+   10 = TEXT
+   10 {
+      if.isTrue.field = field_url_voir_carte
+      stdWrap.noTrimWrap = | <a href="|" target="_blank" class="lien_googlemap" |
+      stdWrap.typolink.parameter.field  = field_url_voir_carte
+      stdWrap.typolink.returnLast = url
+   }
+   
+   20 = TEXT
+   20 {
+      field = field_texte_voir_carte
+      if.isTrue.field = field_url_voir_carte
+      stdWrap.noTrimWrap = |>|<span class="visuallyhidden">Ce lien ouvrira dans une nouvelle fenêtre</span></a>|
+   }
+   
+}]]></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+			</field_voir_carte>
+			<field_url_voir_carte type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Url vers google map</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>link</eType>
+					<TypoScript>10 = TEXT
+10.typolink.parameter.current = 1</TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Url vers google map</label>
+					<config type="array">
+						<type>input</type>
+						<size>15</size>
+						<max>256</max>
+						<checkbox></checkbox>
+						<eval>trim</eval>
+						<wizards type="array">
+							<_PADDING type="integer">2</_PADDING>
+							<link type="array">
+								<type>popup</type>
+								<title>Link</title>
+								<icon>link_popup.gif</icon>
+								<script>browse_links.php?mode=wizard</script>
+								<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+							</link>
+						</wizards>
+					</config>
+				</TCEforms>
+			</field_url_voir_carte>
+			<field_texte_voir_carte type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Texte du lien voir la carte</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<proc type="array">
+						<HSC type="integer">1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Texte du lien voir la carte</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_texte_voir_carte>
 		</el>
 	</ROOT>
 </T3DataStructure>
