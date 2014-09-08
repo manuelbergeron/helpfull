@@ -22,7 +22,7 @@
                         <int>0</int>
                         <HSC>0</HSC>
                         <stdWrap><![CDATA[required = 1
-wrap = |<span class="visuallyhidden"> Le vidéo s'ouvrira dans une nouvelle fenêtre</span>]]></stdWrap>
+wrap = |<span class="visuallyhidden"> Le vidéo s'ouvrira dans une fenêtre contextuelle</span>]]></stdWrap>
                     </proc>
                     <preview></preview>
                 </tx_templavoila>
