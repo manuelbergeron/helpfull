@@ -1,0 +1,69 @@
+####
+# Configuration typoscript avec icone pour plein de type de documents
+####
+
+plugin.tx_mllinks_pi1 {
+  
+  _LOCAL_LANG.fr {
+    KB = ko
+  }
+  
+   _LOCAL_LANG.fr_CA {
+    KB = ko
+  }
+  
+   _LOCAL_LANG.default {
+    KB = ko
+  }
+  
+  externalDomain >
+  separator >
+    
+    # Rendre les liens accessible SGQRI 008
+    external {
+        5.openingATag = 1
+        5.openingATag.title = Cet hyperlien s'ouvrira dans une nouvelle fenêtre.
+        25 < .10
+        10 >
+        25.image = fileadmin/templates/examenfisc/tmpl/build/img/ico_externe.png
+        25.image.alt = Cet hyperlien s'ouvrira dans une nouvelle fenêtre.
+        25.image.link = 1
+        30.closingATag = 1
+    }
+  mailto >
+  pdf {
+    5.openingATag = 1
+    25 < .10
+    10 >
+    15.linkText = 1
+    20.linkTag = 0
+    21.image = fileadmin/templates/images/icones/icon_pdf.png
+    21.image.alt = Fichier pdf
+    21.image.link = 0
+    22.filesize = 1
+    25.image = fileadmin/templates/examenfisc/tmpl/build/img/ico_externe.png
+    25.image.alt = Cet hyperlien s'ouvrira dans une nouvelle fenêtre.
+    26.closingATag = 1
+    30.filesize = 0
+  }
+  ppt < pdf
+  ppt {
+    21.image = fileadmin/templates/images/icones/icon_ppt.png
+    21.image.alt = Fichier powerpoint
+  }
+  
+  xls < pdf
+  xls {
+    21.image = fileadmin/templates/images/icones/icon_xls.png
+    21.image.alt = Fichier excel
+  }
+  xlsx < xls
+  doc < pdf
+  doc {
+    21.image = fileadmin/templates/images/icones/icon_doc.png
+    21.image.alt = Fichier word
+  }
+  docx < doc
+}
+
+plugin.tt_news.general_stdWrap.parseFunc =< lib.parseFunc_RTE
