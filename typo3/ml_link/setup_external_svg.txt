@@ -1,0 +1,39 @@
+##
+# Ajoute un icone en SVG pour les liens externe
+##
+
+plugin.tx_mllinks_pi1 {
+  
+  _LOCAL_LANG.fr {
+    KB = ko
+  }
+  
+   _LOCAL_LANG.fr_CA {
+    KB = ko
+  }
+  
+   _LOCAL_LANG.default {
+    KB = ko
+  }
+  
+  externalDomain >
+  separator >
+    
+  # Rendre les liens accessible SGQRI 008
+  external {
+    5.openingATag = 1
+    5.openingATag.title = Cet hyperlien s'ouvrira dans une nouvelle fenêtre.
+    25 < .10
+    10 >
+    14.linkText = 1
+    15.string = &nbsp;<span class="visuallyhidden">Cet hyperlien s'ouvrira dans une nouvelle fenêtre.</span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="external-icon" x="0px" y="0px" width="15px" height="15px" viewBox="276.875 333.917 34.542 34.467" xml:space="preserve"><g><path fill="#1D1D1B" d="M311.417,368.384h-34.542v-34.467h34.542V368.384z M279.375,365.884h29.542v-29.467h-29.542V365.884z"/></g><g><polygon fill="#1D1D1B" points="286.752,361.084 295.943,351.894 299.941,355.891 303.811,341.484 289.405,345.355 293.402,349.352 284.211,358.543"/></g></svg>
+    5.linkTag.title = Cet hyperlien s'ouvrira dans une nouvelle fenêtre.
+    20.linkTag >
+    25.image >
+    30.closingATag = 1
+  }
+  
+  mailto >
+}
+
+plugin.tt_news.general_stdWrap.parseFunc =< lib.parseFunc_RTE
