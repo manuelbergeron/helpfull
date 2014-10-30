@@ -1,0 +1,76 @@
+<!-- ###TEMPLATE_FORM1### begin -->
+<form action="###REL_URL###" method="post" novalidate="novalidate" enctype="multipart/form-data" >
+    <div tabindex="-1" class="js-output errors">
+        ###error###
+    </div>
+    <span class="obligatoire">
+        <br/>
+         <em>###LLL:required_fields###</em>
+    </span>
+    <div class="fields" id="fields">
+        <div class="l-row is-nested">
+            <div class="l-col col-6 mobile-full">
+                <div class="field prenom ###is_error_prenom###">
+                    <label for="prenom">
+                        ###LLL:prenom###
+                        ###required_prenom###
+                        ###error_prenom###</label>
+                    <input type="text" name="###form_name###[prenom]" id="prenom" value="###value_prenom###" />
+                </div>
+            </div>
+            <div class="l-col col-6 mobile-full">
+                <div class="field nom ###is_error_nom###">
+                    <label for="nom">
+                        ###LLL:nom###
+                        ###required_nom###
+                        ###error_nom###</label>
+                    <input type="text" name="###form_name###[nom]" id="nom" value="###value_nom###" />
+                </div>
+            </div>
+        </div>
+        <div class="l-row is-nested">
+            <div class="l-col col-12 mobile-full">
+                <div class="field courriel ###is_error_courriel###">
+                    <label for="courriel">
+                        ###LLL:courriel###
+                        ###required_courriel###
+                        ###error_courriel###</label>
+                    <input type="text" name="###form_name###[courriel]" id="courriel" value="###value_courriel###" />
+                </div>
+            </div>
+        </div>
+        <div class="l-row is-nested">
+            <div class="l-col col-12">
+                <div class="field textarea commentaires ###is_error_commentaires###">
+                    <label for="commentaires">
+                        ###LLL:commentaires###
+                        ###required_commentaires###
+                        ###error_commentaires###</label>
+                    <textarea id="commentaires" name="###form_name###[commentaires]">###value_commentaires###</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div id="buttons">
+        <input type="submit" value="###LLL:submit###" ###submit_nextStep###  class="submit  btn btn-yellow" />
+    </div>
+
+</form>
+<!-- ###TEMPLATE_FORM1### end -->
+
+<!-- ###TEMPLATE_SUBMITTEDOK### begin -->
+
+<h2>Le formulaire a été envoyé avec succès !</h2>
+
+<!-- non utilisé finalement
+<p>Voici les informations qui ont été envoyés :</p>
+
+<dl>
+    <dt><strong>###LLL:prenom###</strong></dt><dd>###value_prenom###</dd>
+    <dt><strong>###LLL:nom###</strong></dt><dd>###value_nom###</dd>
+    <dt><strong>###LLL:courriel###</strong></dt><dd>###value_courriel###</dd>
+    <dt><strong>###LLL:commentaires###</strong></dt><dd>###value_commentaires###</dd>
+</dl>
+-->
+<!-- ###TEMPLATE_SUBMITTEDOK### end -->

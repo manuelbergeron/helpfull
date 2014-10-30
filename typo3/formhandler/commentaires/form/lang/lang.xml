@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Étiquette de langue pour le formulaire de commentaires</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+            <label index="nom">Nom</label>
+            <label index="prenom">Prénom</label>
+            <label index="telephone">Téléphone</label>
+            <label index="courriel">Courriel</label>
+            <label index="commentaires">Commentaires et suggestions</label>
+
+            <label index="submit">Soumettre le commentaire</label>
+
+            <label index="required-element">(obligatoire)</label>
+            <label index="required_fields">Les champs marqués de * sont obligatoires!</label>
+
+            <label index="error_nom_error">Erreur -</label>
+            <label index="error_nom_required">Nom est obligatoire.</label>
+            <label index="error_prenom_required">Prénom est obligatoire.</label>
+            <label index="error_telephone_required">Téléphone est obligatoire.</label>
+            <label index="error_telephone_pregmatch">Téléphone n'est pas valide.</label>
+            <label index="error_courriel_required">Courriel est obligatoire.</label>
+            <label index="error_courriel_email">Courriel n'est pas valide.</label>
+            <label index="error_commentaires_required">Commentaires et suggestions est obligatoire.</label>
+            <label index="champs_erreur">Il y a des champs erronés</label>
+
+
+            <label index="email_admin_subject">Nouveau message de formulaire sur le site de la CSDPS</label>
+            <label index="email_user_subject">Confirmation de l'envoi de formulaire sur le site de la CSDPS</label>
+
+		</languageKey>
+	</data>
+</T3locallang>
