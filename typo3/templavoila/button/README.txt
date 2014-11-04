@@ -1,0 +1,1 @@
+Bouton multi ligne, responsive, qui fonctionne avec VTT, de plusieurs couleurs pouvant être un lien si il reçoit un url ou un button si il est utilisé sans lien. Si il est un url externe, il ajoute un svg avec la flèche et un span pour indiquer que le lien ouvrira dans une nouvelle fenêtre. 
