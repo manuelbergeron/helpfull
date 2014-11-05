@@ -440,11 +440,12 @@ append {
 					<sample_data type="array">
 						<numIndex index="0"></numIndex>
 					</sample_data>
-					<eType>none</eType>
+					<eType>input</eType>
 					<TypoScript>10 = COA
 10 {
     10 = TEXT
-    10.value = l-row
+    10.stdWrap.noTrimWrap = |l-row ||
+    10.field = field_line_class
 
     20 = TEXT
     20.if.isTrue.field = field_fullwidth
@@ -457,11 +458,19 @@ append {
 }</TypoScript>
 					<proc type="array">
 						<int>0</int>
-						<HSC>0</HSC>
+						<HSC>1</HSC>
 						<stdWrap></stdWrap>
 					</proc>
 					<preview></preview>
 				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Classes de la ligne</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
 			</field_line_class>
 		</el>
 	</ROOT>
