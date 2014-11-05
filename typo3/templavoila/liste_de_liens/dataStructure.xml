@@ -126,14 +126,21 @@
     10 = TEXT
     10 {
         if.isTrue.field = field_url_lien
-        stdWrap.noTrimWrap = |<a href="|" |
-        field = field_url_lien
+        value = <a href="
+    }
+
+    15 = TEXT
+    15 {
+        if.isTrue.field = field_url_lien
+        typolink.current = 1
+        typolink.parameter.field = field_url_lien
+        typolink.returnLast = url
     }
 
     20 = TEXT
     20 {
          if.isTrue.field = field_url_lien
-         stdWrap.noTrimWrap = | target="|" >|
+         stdWrap.noTrimWrap = |" target="|" >|
          field = field_cible
     }
 
@@ -157,8 +164,7 @@
         if.isTrue.field = field_url_lien
         value = </a>
     }
-}
-]]></TypoScript>
+}]]></TypoScript>
 													<proc type="array">
 														<int>0</int>
 														<HSC>0</HSC>
