@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<field_texte type="array">
+				<tx_templavoila type="array">
+					<title>Texte du bouton</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<TypoScript><![CDATA[10 = COA
+10 {
+  10 = TEXT
+  10 {
+    if.isTrue.field = field_url_bouton
+    stdWrap.noTrimWrap = | <a href="|" |
+    stdWrap.typolink.parameter.field  = field_url_bouton
+    stdWrap.typolink.returnLast = url
+    required = 1
+  }
+
+  20 = TEXT
+  20 {
+    if.isFalse.field = field_url_bouton
+    value = <button
+    required= 1
+  }
+
+  25 = TEXT
+  25.stdWrap.noTrimWrap = | target="|" |
+  25.field = field_cible
+
+  30 = COA
+  30 {
+    stdWrap.noTrimWrap = | class="btn btn-yellow |">|
+    10 = TEXT
+    10.field = field_class
+
+    20 = TEXT
+    20.if.isTrue.field = field_arrow
+    20.value = btn-arrow
+    20.stdWrap.noTrimWrap = | ||
+
+    30 = TEXT
+    30.field = field_couleur
+    30.stdWrap.noTrimWrap = | ||
+  }
+
+  40 = COA
+  40 {
+    10 = TEXT
+    10.if.isTrue.field = field_sous_texte
+    10.value = <span class="bold">
+
+    20 = TEXT
+    20.field = field_texte
+
+    25 = TEXT
+    25.if {
+      value.field = field_cible
+      equals = _blank
+    }
+    25.value = &nbsp;<span class="visuallyhidden">Cet hyperlien s'ouvrira dans une nouvelle fenêtre.</span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="external-icon" x="0px" y="0px" width="15px" height="15px" viewBox="276.875 333.917 34.542 34.467" xml:space="preserve"><g><path fill="#1D1D1B" d="M311.417,368.384h-34.542v-34.467h34.542V368.384z M279.375,365.884h29.542v-29.467h-29.542V365.884z"/></g><g><polygon fill="#1D1D1B" points="286.752,361.084 295.943,351.894 299.941,355.891 303.811,341.484 289.405,345.355 293.402,349.352 284.211,358.543"/></g></svg>
+
+
+    30 = TEXT
+    30.if.isTrue.field = field_sous_texte
+    30.value = </span>
+
+    40 = TEXT
+    40.if.isTrue.field = field_sous_texte
+    40.value = <span>
+
+    50 = TEXT
+    50.field = field_sous_texte
+
+    60 = TEXT
+    60.if.isTrue.field = field_sous_texte
+    60.value = </span>
+  }
+
+
+  50 = TEXT
+  50 {
+    if.isTrue.field = field_url_bouton
+    value = </a>
+    required = 1
+  }
+
+  60 = TEXT
+  60 {
+    if.isFalse.field = field_url_bouton
+    value = </button>
+    required = 1
+  }
+}]]></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Texte du bouton</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_texte>
+			<field_url_bouton type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Url du bouton</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>link</eType>
+					<TypoScript>10 = TEXT
+10.typolink.parameter.current = 1</TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Url du bouton</label>
+					<config type="array">
+						<type>input</type>
+						<size>15</size>
+						<max>256</max>
+						<checkbox></checkbox>
+						<eval>trim</eval>
+						<wizards type="array">
+							<_PADDING type="integer">2</_PADDING>
+							<link type="array">
+								<type>popup</type>
+								<title>Link</title>
+								<icon>link_popup.gif</icon>
+								<script>browse_links.php?mode=wizard</script>
+								<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+							</link>
+						</wizards>
+					</config>
+				</TCEforms>
+			</field_url_bouton>
+			<field_class type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Classe spéciale du bouton</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<proc type="array">
+						<HSC type="integer">1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScript type="NULL"></TypoScript>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Classe spéciale du bouton</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_class>
+			<field_arrow type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Forme de flèche</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>check</eType>
+					<TypoScript></TypoScript>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Forme de flèche</label>
+					<config type="array">
+						<type>check</type>
+						<default type="integer">0</default>
+					</config>
+				</TCEforms>
+			</field_arrow>
+			<field_couleur type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Couleur du bouton</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>select</eType>
+					<TypoScript></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Couleur du bouton</label>
+					<config type="array">
+						<type>select</type>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">Jaune</numIndex>
+								<numIndex index="1">btn-yellow</numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">Vert</numIndex>
+								<numIndex index="1">btn-green</numIndex>
+							</numIndex>
+							<numIndex index="2" type="array">
+								<numIndex index="0">Bleu</numIndex>
+								<numIndex index="1">btn-blue</numIndex>
+							</numIndex>
+						</items>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</field_couleur>
+			<field_sous_texte type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Sous texte du bouton</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<proc type="array">
+						<HSC type="integer">1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Sous texte du bouton</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_sous_texte>
+			<field_cible type="array">
+				<type>no_map</type>
+				<tx_templavoila type="array">
+					<title>Cible du bouton</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>select</eType>
+					<TypoScript></TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Cible du bouton</label>
+					<config type="array">
+						<type>select</type>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">Même fenêtre</numIndex>
+								<numIndex index="1">_self</numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">Nouvelle fenêtre</numIndex>
+								<numIndex index="1">_blank</numIndex>
+							</numIndex>
+						</items>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</field_cible>
+		</el>
+	</ROOT>
+</T3DataStructure>
