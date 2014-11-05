@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<field_titre type="array">
+				<tx_templavoila type="array">
+					<title>titre</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>input</eType>
+					<proc type="array">
+						<HSC type="integer">1</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+					<TypoScript type="NULL"></TypoScript>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>titre</label>
+					<config type="array">
+						<type>input</type>
+						<size>48</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</field_titre>
+			<field_sections type="array">
+				<type>array</type>
+				<tx_templavoila type="array">
+					<title>Sections de titre et liens</title>
+					<eType>input</eType>
+					<preview></preview>
+				</tx_templavoila>
+				<el type="array">
+					<field_section type="array">
+						<type>array</type>
+						<tx_templavoila type="array">
+							<title>Section de titre et liens</title>
+							<eType>input</eType>
+							<TypoScript></TypoScript>
+							<proc type="array">
+								<int>0</int>
+								<HSC>0</HSC>
+								<stdWrap></stdWrap>
+							</proc>
+							<preview></preview>
+						</tx_templavoila>
+						<TCEforms type="array">
+							<label></label>
+							<config type="array">
+							</config>
+						</TCEforms>
+						<el type="array">
+							<field_titre_section type="array">
+								<tx_templavoila type="array">
+									<title>Titre de la section</title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>input</eType>
+									<TypoScript><![CDATA[10 = TEXT
+10.field = field_titre_section
+10.wrap = <h3 class="quicklinks-section-title">|</h3>
+10.required = 1]]></TypoScript>
+									<proc type="array">
+										<int>0</int>
+										<HSC>0</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Titre de la section</label>
+									<config type="array">
+										<type>input</type>
+										<size>48</size>
+										<eval>trim</eval>
+									</config>
+								</TCEforms>
+							</field_titre_section>
+							<field_liens type="array">
+								<type>array</type>
+								<tx_templavoila type="array">
+									<title>liens</title>
+									<eType>input</eType>
+									<preview></preview>
+								</tx_templavoila>
+								<el type="array">
+									<field_lien type="array">
+										<type>array</type>
+										<tx_templavoila type="array">
+											<title>lien</title>
+											<eType>input</eType>
+											<TypoScript></TypoScript>
+											<proc type="array">
+												<int>0</int>
+												<HSC>0</HSC>
+												<stdWrap></stdWrap>
+											</proc>
+											<preview></preview>
+										</tx_templavoila>
+										<TCEforms type="array">
+											<label></label>
+											<config type="array">
+											</config>
+										</TCEforms>
+										<el type="array">
+											<field_texte_lien type="array">
+												<tx_templavoila type="array">
+													<title>Texte du lien</title>
+													<sample_data type="array">
+														<numIndex index="0"></numIndex>
+													</sample_data>
+													<eType>input</eType>
+													<TypoScript><![CDATA[10 = COA
+10 {
+    10 = TEXT
+    10 {
+        if.isTrue.field = field_url_lien
+        stdWrap.noTrimWrap = |<a href="|" |
+        field = field_url_lien
+    }
+
+    20 = TEXT
+    20 {
+         if.isTrue.field = field_url_lien
+         stdWrap.noTrimWrap = | target="|" >|
+         field = field_cible
+    }
+
+    30 = TEXT
+    30 {
+        field = field_texte_lien
+    }
+
+    40 = TEXT
+    40 {
+        if {
+          isTrue.field = field_url_lien
+          value.field = field_cible
+          equals = _blank
+        }
+        value = &nbsp;<span class="visuallyhidden">Cet hyperlien s'ouvrira dans une nouvelle fenêtre.</span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="external-icon" x="0px" y="0px" width="15px" height="15px" viewBox="276.875 333.917 34.542 34.467" xml:space="preserve"><g><path fill="#1D1D1B" d="M311.417,368.384h-34.542v-34.467h34.542V368.384z M279.375,365.884h29.542v-29.467h-29.542V365.884z"/></g><g><polygon fill="#1D1D1B" points="286.752,361.084 295.943,351.894 299.941,355.891 303.811,341.484 289.405,345.355 293.402,349.352 284.211,358.543"/></g></svg>
+    }
+
+    50 = TEXT
+    50 {
+        if.isTrue.field = field_url_lien
+        value = </a>
+    }
+}
+]]></TypoScript>
+													<proc type="array">
+														<int>0</int>
+														<HSC>0</HSC>
+														<stdWrap></stdWrap>
+													</proc>
+													<preview></preview>
+												</tx_templavoila>
+												<TCEforms type="array">
+													<label>Texte du lien</label>
+													<config type="array">
+														<type>input</type>
+														<size>48</size>
+														<eval>trim</eval>
+													</config>
+												</TCEforms>
+											</field_texte_lien>
+											<field_url_lien type="array">
+												<type>no_map</type>
+												<tx_templavoila type="array">
+													<title>Url du lien</title>
+													<sample_data type="array">
+														<numIndex index="0"></numIndex>
+													</sample_data>
+													<eType>link</eType>
+													<TypoScript>10 = TEXT
+10.typolink.parameter.current = 1
+10.typolink.returnLast = url</TypoScript>
+													<proc type="array">
+														<int>0</int>
+														<HSC>0</HSC>
+														<stdWrap></stdWrap>
+													</proc>
+													<preview></preview>
+												</tx_templavoila>
+												<TCEforms type="array">
+													<label>Url du lien</label>
+													<config type="array">
+														<type>input</type>
+														<size>15</size>
+														<max>256</max>
+														<checkbox></checkbox>
+														<eval>trim</eval>
+														<wizards type="array">
+															<_PADDING type="integer">2</_PADDING>
+															<link type="array">
+																<type>popup</type>
+																<title>Link</title>
+																<icon>link_popup.gif</icon>
+																<script>browse_links.php?mode=wizard</script>
+																<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+															</link>
+														</wizards>
+													</config>
+												</TCEforms>
+											</field_url_lien>
+											<field_cible type="array">
+												<type>no_map</type>
+												<tx_templavoila type="array">
+													<title>Cible du lien</title>
+													<sample_data type="array">
+														<numIndex index="0"></numIndex>
+													</sample_data>
+													<eType>select</eType>
+													<TypoScript></TypoScript>
+													<proc type="array">
+														<int>0</int>
+														<HSC>0</HSC>
+														<stdWrap></stdWrap>
+													</proc>
+													<preview></preview>
+												</tx_templavoila>
+												<TCEforms type="array">
+													<label>Cible du lien</label>
+													<config type="array">
+														<type>select</type>
+														<items type="array">
+															<numIndex index="0" type="array">
+																<numIndex index="0">Fenêtre courrante</numIndex>
+																<numIndex index="1">_self</numIndex>
+															</numIndex>
+															<numIndex index="1" type="array">
+																<numIndex index="0">Nouvelle fenêtre</numIndex>
+																<numIndex index="1">_blank</numIndex>
+															</numIndex>
+														</items>
+														<default>0</default>
+													</config>
+												</TCEforms>
+											</field_cible>
+										</el>
+									</field_lien>
+								</el>
+								<section>1</section>
+							</field_liens>
+						</el>
+					</field_section>
+				</el>
+				<section>1</section>
+			</field_sections>
+			<field_couleur type="array">
+				<type>attr</type>
+				<tx_templavoila type="array">
+					<title>Couleur du fond</title>
+					<sample_data type="array">
+						<numIndex index="0"></numIndex>
+					</sample_data>
+					<eType>select</eType>
+					<TypoScript>10 = TEXT
+10.field = field_couleur
+10.stdWrap.noTrimWrap = |quicklinks-wrapper | |</TypoScript>
+					<proc type="array">
+						<int>0</int>
+						<HSC>0</HSC>
+						<stdWrap></stdWrap>
+					</proc>
+					<preview></preview>
+				</tx_templavoila>
+				<TCEforms type="array">
+					<label>Couleur du fond</label>
+					<config type="array">
+						<type>select</type>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">Aucune</numIndex>
+								<numIndex index="1"></numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">Vert</numIndex>
+								<numIndex index="1">quicklinks-green</numIndex>
+							</numIndex>
+							<numIndex index="2" type="array">
+								<numIndex index="0">Aqua</numIndex>
+								<numIndex index="1">quicklinks-aqua</numIndex>
+							</numIndex>
+							<numIndex index="3" type="array">
+								<numIndex index="0">Orange</numIndex>
+								<numIndex index="1">quicklinks-orange</numIndex>
+							</numIndex>
+						</items>
+						<default>0</default>
+					</config>
+				</TCEforms>
+			</field_couleur>
+		</el>
+	</ROOT>
+</T3DataStructure>
