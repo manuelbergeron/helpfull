@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<meta type="array">
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT type="array">
+		<tx_templavoila type="array">
+			<title>ROOT</title>
+			<description>Select the HTML element on the page which you want to be the overall container element for the template.</description>
+		</tx_templavoila>
+		<type>array</type>
+		<el type="array">
+			<images type="array">
+				<type>array</type>
+				<tx_templavoila type="array">
+					<title>Images</title>
+					<eType>input</eType>
+					<preview></preview>
+				</tx_templavoila>
+				<el type="array">
+					<image type="array">
+						<type>array</type>
+						<tx_templavoila type="array">
+							<title>Image</title>
+							<eType>input</eType>
+							<TypoScript></TypoScript>
+							<proc type="array">
+								<int>0</int>
+								<HSC>0</HSC>
+								<stdWrap></stdWrap>
+							</proc>
+							<preview></preview>
+						</tx_templavoila>
+						<TCEforms type="array">
+							<label></label>
+							<config type="array">
+							</config>
+						</TCEforms>
+						<el type="array">
+							<field_image type="array">
+								<tx_templavoila type="array">
+									<title>Image</title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>imagefixed</eType>
+									<TypoScript>10 = IMAGE
+10.file.XY = 300,226
+10.file.import = uploads/tx_templavoila/
+10.file.import.current = 1
+10.file.import.listNum = 0
+10.file.maxW = 300
+10.file.minW = 300
+10.file.maxH = 226
+10.file.minH = 226
+10.altText.field = field_alt</TypoScript>
+									<proc type="array">
+										<int>0</int>
+										<HSC>0</HSC>
+										<stdWrap>required = 1
+typolink.parameter.field = field_url</stdWrap>
+									</proc>
+									<preview></preview>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Image</label>
+									<config type="array">
+										<type>group</type>
+										<internal_type>file</internal_type>
+										<allowed>gif,png,jpg,jpeg</allowed>
+										<max_size>1000</max_size>
+										<uploadfolder>uploads/tx_templavoila</uploadfolder>
+										<show_thumbs>1</show_thumbs>
+										<size>1</size>
+										<maxitems>1</maxitems>
+										<minitems>0</minitems>
+									</config>
+								</TCEforms>
+							</field_image>
+							<field_url type="array">
+								<type>no_map</type>
+								<tx_templavoila type="array">
+									<title>Url</title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>link</eType>
+									<TypoScript>
+10 = TEXT
+10.typolink.parameter.current = 1</TypoScript>
+									<proc type="array">
+										<HSC>0</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Url</label>
+									<config type="array">
+										<type>input</type>
+										<size>15</size>
+										<max>256</max>
+										<checkbox></checkbox>
+										<eval>trim</eval>
+										<wizards type="array">
+											<_PADDING type="integer">2</_PADDING>
+											<link type="array">
+												<type>popup</type>
+												<title>Link</title>
+												<icon>link_popup.gif</icon>
+												<script>browse_links.php?mode=wizard</script>
+												<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+											</link>
+										</wizards>
+									</config>
+								</TCEforms>
+							</field_url>
+							<field_alt type="array">
+								<type>no_map</type>
+								<tx_templavoila type="array">
+									<title>Alt de l'image</title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>input</eType>
+									<proc type="array">
+										<HSC type="integer">1</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+									<TypoScript type="NULL"></TypoScript>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Alt de l'image</label>
+									<config type="array">
+										<type>input</type>
+										<size>48</size>
+										<eval>trim</eval>
+									</config>
+								</TCEforms>
+							</field_alt>
+							<field_zone_texte type="array">
+								<tx_templavoila type="array">
+									<title>zone de texte</title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>none</eType>
+									<TypoScript><![CDATA[10 = COA
+10 {
+
+    10 = TEXT
+    10 {
+        if.isFalse.field = field_image
+        stdWrap.noTrimWrap = |<div class="text-slide">||
+    }
+
+    20 = TEXT
+    20 {
+        if.isFalse.field = field_image
+        wrap=<a href="|">
+        typolink.parameter.field = field_url
+        typolink.returnLast = url
+    }
+
+    30 = TEXT
+    30 {
+        if.isFalse.field = field_image
+        if.isTrue.field = field_titre
+        stdWrap.noTrimWrap=|<h2>|</h2>|
+        field = field_titre
+    }
+
+    40 = TEXT
+    40 {
+        if.isFalse.field = field_image
+        if.isTrue.field = field_texte
+        stdWrap.noTrimWrap=|<p>|</p>|
+        field = field_texte
+    }
+
+    50 = TEXT
+    50 {
+        stdWrap.noTrimWrap =||</a>|
+        if.isFalse.field = field_image
+    }
+
+    60 = TEXT
+    60 {
+        if.isFalse.field = field_image
+        stdWrap.noTrimWrap = ||</div>|
+    }
+}]]></TypoScript>
+									<proc type="array">
+										<int>0</int>
+										<HSC>0</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+								</tx_templavoila>
+							</field_zone_texte>
+							<field_titre type="array">
+								<type>no_map</type>
+								<tx_templavoila type="array">
+									<title>Titre si aucune image</title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>input</eType>
+									<proc type="array">
+										<HSC type="integer">1</HSC>
+										<stdWrap></stdWrap>
+									</proc>
+									<preview></preview>
+									<TypoScript type="NULL"></TypoScript>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Titre si aucune image</label>
+									<config type="array">
+										<type>input</type>
+										<size>48</size>
+										<eval>trim</eval>
+									</config>
+								</TCEforms>
+							</field_titre>
+							<field_texte type="array">
+								<type>no_map</type>
+								<tx_templavoila type="array">
+									<title>Texte si aucune image</title>
+									<sample_data type="array">
+										<numIndex index="0"></numIndex>
+									</sample_data>
+									<eType>rte</eType>
+									<TypoScript><![CDATA[
+10 = TEXT
+10.current = 1
+10.parseFunc = < lib.parseFunc_RTE]]></TypoScript>
+									<preview></preview>
+								</tx_templavoila>
+								<TCEforms type="array">
+									<label>Texte si aucune image</label>
+									<config type="array">
+										<type>text</type>
+										<cols>48</cols>
+										<rows>5</rows>
+										<softref>rtehtmlarea_images,typolink_tag,email[subst],url</softref>
+									</config>
+									<defaultExtras>richtext:rte_transform[flag=rte_enabled|mode=ts_css]</defaultExtras>
+								</TCEforms>
+							</field_texte>
+						</el>
+					</image>
+				</el>
+				<section>1</section>
+			</images>
+		</el>
+	</ROOT>
+</T3DataStructure>
